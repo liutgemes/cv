@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auliyatun Nisa - Cute Personal Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #ffd1dc 100%);
+            min-height: 100vh;
+            color: #5c3a4d;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-fredoka {
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* Floating animation for icons and avatars */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes pulse-heart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes bounce-ball {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 5s ease-in-out 1.5s infinite;
+        }
+
+        .animate-pulse-heart {
+            animation: pulse-heart 1.5s ease-in-out infinite;
+        }
+
+        .animate-volleyball {
+            animation: bounce-ball 1.2s ease-in-out infinite;
+        }
+
+        /* Sparkle & Heart Particle style */
+        .sparkle-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: fadeUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffe4e1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffb6c1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff69b4;
+        }
+
+        /* Glassmorphism cute cards */
+        .cute-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 3px solid #ffccd5;
+            box-shadow: 0 10px 25px -5px rgba(255, 182, 193, 0.4), 0 8px 10px -6px rgba(255, 182, 193, 0.2);
+            border-radius: 2rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .cute-card:hover {
+            transform: translateY(-5deg) scale(1.01);
+            border-color: #ff85a1;
+            box-shadow: 0 20px 30px -10px rgba(255, 105, 180, 0.3);
+        }
+
+        .cute-btn {
+            background: linear-gradient(135deg, #ff85a1 0%, #ff477e 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .cute-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 71, 126, 0.6);
+            background: linear-gradient(135deg, #ff94b1 0%, #ff5c8d 100%);
+        }
+
+        .cute-btn:active {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-16">
+
+    <!-- Background Decorative Elements -->
+    <div class="fixed top-10 left-10 text-pink-300 text-4xl animate-float pointer-events-none opacity-60">🌸</div>
+    <div class="fixed top-1/4 right-8 text-pink-300 text-3xl animate-float-delayed pointer-events-none opacity-60">✨</div>
+    <div class="fixed bottom-20 left-12 text-pink-300 text-5xl animate-float-delayed pointer-events-none opacity-50">🎀</div>
+    <div class="fixed bottom-10 right-16 text-pink-300 text-4xl animate-float pointer-events-none opacity-60">🏐</div>
+
+    <header class="sticky top-4 z-50 max-w-4xl mx-auto px-4">
+        <nav class="bg-white/80 backdrop-blur-md border-2 border-pink-200 rounded-full py-3 px-6 shadow-lg flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-9 h-9 rounded-full bg-pink-400 flex items-center justify-center text-white text-lg font-bold shadow">
+                    🎀
+                </div>
+                <span class="font-fredoka text-xl text-pink-600 font-bold tracking-wide">Nisa's World</span>
+            </div>
+            
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <a href="#about" class="px-3 py-1.5 text-xs md:text-sm font-semibold text-pink-700 hover:text-pink-500 rounded-full hover:bg-pink-100 transition">Tentang Saya</a>
+                <a href="#experience" class="px-3 py-1.5 text-xs md:text-sm font-semibold text-pink-700 hover:text-pink-500 rounded-full hover:bg-pink-100 transition">Pengalaman</a>
+                <a href="#contact" class="cute-btn px-4 py-1.5 rounded-full text-xs md:text-sm font-bold flex items-center gap-1">
+                    <span>Sapa Nisa</span>
+                    <i class="fa-solid fa-heart text-xs"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 mt-8 space-y-12">
+
+        <section id="hero" class="cute-card p-6 md:p-10 text-center relative overflow-hidden">
+            <!-- Background Cute Waves/Pattern -->
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-pink-200/50 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-rose-200/50 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <!-- Cute Profile Avatar -->
+                <div class="relative mb-6">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full p-2 bg-gradient-to-tr from-pink-400 via-rose-300 to-pink-200 shadow-xl animate-float">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden border-4 border-white relative">
+                            <!-- SVG Cute Girl Avatar Illustration -->
+                            <svg class="w-28 h-28 text-pink-400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="45" r="28" fill="#FFE0BD"/>
+                                <path d="M22 45C22 30 32 18 50 18C68 18 78 30 78 45C78 47 77 58 75 62C72 50 65 42 50 42C35 42 28 50 25 62C23 58 22 47 22 45Z" fill="#5C3A21"/>
+                                <!-- Ribbon Hair Clip -->
+                                <path d="M30 25C28 20 35 20 38 24C41 20 48 20 46 25C44 28 38 30 38 30C38 30 32 28 30 25Z" fill="#FF477E"/>
+                                <circle cx="38" cy="25" r="3" fill="#FFF"/>
+                                <!-- Eyes & Smile -->
+                                <circle cx="40" cy="46" r="3" fill="#333"/>
+                                <circle cx="60" cy="46" r="3" fill="#333"/>
+                                <circle cx="38" cy="44" r="1" fill="#FFF"/>
+                                <circle cx="58" cy="44" r="1" fill="#FFF"/>
+                                <ellipse cx="35" cy="51" rx="4" ry="2" fill="#FF85A1" opacity="0.6"/>
+                                <ellipse cx="65" cy="51" rx="4" ry="2" fill="#FF85A1" opacity="0.6"/>
+                                <path d="M45 52C45 52 48 56 50 56C52 56 55 52 55 52" stroke="#FF477E" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Cute Clothes -->
+                                <path d="M25 85C25 72 36 65 50 65C64 65 75 72 75 85V100H25V85Z" fill="#FF85A1"/>
+                                <path d="M42 65L50 75L58 65" stroke="#FFF" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Volleyball Badge Badge Floating -->
+                    <div class="absolute bottom-1 right-1 bg-white p-2 rounded-full shadow-lg border-2 border-pink-300 animate-volleyball cursor-pointer" title="Suka Main Bola Voli!">
+                        <span class="text-2xl">🏐</span>
+                    </div>
+                </div>
+
+                <!-- Greeting Pill -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100 text-pink-700 text-sm font-semibold mb-3 border border-pink-200">
+                    <span class="animate-pulse-heart">✨</span> Halo! Salam Kenal Semuanya
+                </div>
+
+                <h1 class="text-3xl md:text-5xl font-bold text-pink-600 mb-2 tracking-wide">
+                    AULIYATUN NISA
+                </h1>
+                <p class="text-pink-800/80 font-medium text-base md:text-lg max-w-lg mb-6">
+                    Pelajar yang ceria, penuh semangat, dan menyukai kegiatan olahraga bola voli! 🌸🏐
+                </p>
+
+                <!-- Quick Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <button onclick="triggerSparkles(event)" class="cute-btn px-6 py-2.5 rounded-full font-fredoka font-medium text-sm md:text-base flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Sebar Keajaiban!</span>
+                    </button>
+                    <a href="#experience" class="px-6 py-2.5 rounded-full bg-white text-pink-600 font-fredoka font-medium text-sm md:text-base border-2 border-pink-300 hover:bg-pink-50 transition flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-amber-400"></i>
+                        <span>Lihat Prestasi</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="space-y-6">
+            <div class="flex items-center justify-center space-x-3 text-center">
+                <span class="text-2xl">🎀</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-pink-700 font-fredoka">Biodata Diri</h2>
+                <span class="text-2xl">🎀</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Data Card 1: Informasi Pribadi -->
+                <div class="cute-card p-6 relative overflow-hidden">
+                    <div class="flex items-center space-x-3 mb-4 border-b-2 border-pink-100 pb-3">
+                        <div class="w-10 h-10 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-500 text-xl font-bold">
+                            <i class="fa-solid fa-user-sparkles"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-pink-600 font-fredoka">Profil Singkat</h3>
+                    </div>
+
+                    <ul class="space-y-4 text-sm md:text-base">
+                        <li class="flex items-start justify-between bg-pink-50/70 p-3 rounded-xl border border-pink-100">
+                            <span class="text-pink-600 font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-id-card text-pink-400"></i> Nama Lengkap
+                            </span>
+                            <span class="font-bold text-pink-800 text-right">Auliyatun Nisa</span>
+                        </li>
+                        <li class="flex items-start justify-between bg-pink-50/70 p-3 rounded-xl border border-pink-100">
+                            <span class="text-pink-600 font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-cake-candles text-pink-400"></i> Tempat, Tgl Lahir
+                            </span>
+                            <span class="font-bold text-pink-800 text-right">Tegal, 07 November 2011</span>
+                        </li>
+                        <li class="flex items-start justify-between bg-pink-50/70 p-3 rounded-xl border border-pink-100">
+                            <span class="text-pink-600 font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-heart-pulse text-pink-400"></i> Status Pelajar
+                            </span>
+                            <span class="font-bold text-pink-800 text-right">Aktif & Semangat ✨</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Data Card 2: Alamat Tempat Tinggal -->
+                <div class="cute-card p-6 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4 border-b-2 border-pink-100 pb-3">
+                            <div class="w-10 h-10 rounded-2xl bg-pink-100 flex items-center justify-center text-pink-500 text-xl font-bold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-pink-600 font-fredoka">Tempat Tinggal</h3>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-pink-50 to-rose-50 p-4 rounded-2xl border border-pink-200 mb-4">
+                            <div class="flex items-center gap-2 text-pink-600 font-bold mb-1">
+                                <i class="fa-solid fa-house-chimney-heart"></i> Alamat Rumah
+                            </div>
+                            <p class="text-pink-900 font-semibold text-base leading-relaxed">
+                                Luwunggede, Kec. Tanjung, Kab. Brebes, Jawa Tengah
+                            </p>
+                        </div>
+                    </div>
+
+                    <button onclick="copyAddress('Luwunggede, Kec. Tanjung, Kab. Brebes')" class="w-full py-2.5 rounded-xl bg-pink-100 hover:bg-pink-200 text-pink-700 font-semibold text-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i>
+                        <span id="copyText">Salin Alamat Rumah</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="cute-card p-6 md:p-8 bg-gradient-to-r from-pink-50 via-white to-rose-50 border-4 border-pink-200">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <!-- Left Icon Graphic -->
+                <div class="relative flex-shrink-0">
+                    <div class="w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-pink-400 to-rose-400 flex items-center justify-center shadow-lg text-white text-5xl md:text-6xl transform rotate-3">
+                        🏐
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-amber-300 text-amber-900 font-bold p-2 rounded-full text-xs shadow border border-white flex items-center gap-1">
+                        <i class="fa-solid fa-star"></i> Champion
+                    </div>
+                </div>
+
+                <!-- Right Experience Details -->
+                <div class="flex-grow text-center md:text-left">
+                    <div class="inline-block px-3 py-1 bg-pink-200 text-pink-800 rounded-full text-xs font-bold mb-2">
+                        Pengalaman Berharga 🏆
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-pink-700 font-fredoka mb-2">
+                        Peserta Lomba Bola Voli
+                    </h3>
+                    <p class="text-pink-900 font-medium text-base mb-4 leading-relaxed">
+                        Pernah mewakili sekolah mengikuti turnamen bola voli di tingkat Kecamatan Tanjung sewaktu menempuh pendidikan di Madrasah Ibtidaiyah (MI).
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div class="bg-white p-3 rounded-xl border border-pink-200 text-center">
+                            <div class="text-pink-500 font-bold text-xs">Tingkat Sekolah</div>
+                            <div class="text-pink-800 font-bold text-sm">MI (Kec. Tanjung)</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-pink-200 text-center">
+                            <div class="text-pink-500 font-bold text-xs">Bidang Olahraga</div>
+                            <div class="text-pink-800 font-bold text-sm">Bola Voli 🏐</div>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-pink-200 text-center col-span-2 md:col-span-1">
+                            <div class="text-pink-500 font-bold text-xs">Karakter Team</div>
+                            <div class="text-pink-800 font-bold text-sm">Kerja Sama & Sportif</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cute-card p-6 text-center space-y-6 bg-white/90">
+            <div class="flex items-center justify-center space-x-2">
+                <span class="text-2xl">✨</span>
+                <h2 class="text-2xl font-bold text-pink-600 font-fredoka">Pojok Hobi & Kegemaran</h2>
+                <span class="text-2xl">✨</span>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 hover:bg-pink-100 transition text-center group">
+                    <div class="text-4xl mb-2 group-hover:scale-125 transition transform">🏐</div>
+                    <div class="font-bold text-pink-700 font-fredoka">Main Voli</div>
+                    <div class="text-xs text-pink-500">Olahraga Favorit</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 hover:bg-pink-100 transition text-center group">
+                    <div class="text-4xl mb-2 group-hover:scale-125 transition transform">📚</div>
+                    <div class="font-bold text-pink-700 font-fredoka">Belajar</div>
+                    <div class="text-xs text-pink-500">Menambah Ilmu</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 hover:bg-pink-100 transition text-center group">
+                    <div class="text-4xl mb-2 group-hover:scale-125 transition transform">🎨</div>
+                    <div class="font-bold text-pink-700 font-fredoka">Kreatif</div>
+                    <div class="text-xs text-pink-500">Suka Hal Lucu</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-pink-50 border border-pink-200 hover:bg-pink-100 transition text-center group">
+                    <div class="text-4xl mb-2 group-hover:scale-125 transition transform">🤝</div>
+                    <div class="font-bold text-pink-700 font-fredoka">Berteman</div>
+                    <div class="text-xs text-pink-500">Ceria & Ramah</div>
+                </div>
+            </div>
+
+            <!-- Mini Interactive Mood / Clicker Game -->
+            <div class="mt-6 pt-6 border-t-2 border-pink-100 flex flex-col items-center">
+                <p class="text-sm font-semibold text-pink-700 mb-3">Kirimkan Love & Semangat Untuk Nisa! ❤️</p>
+                <button id="heartCounterBtn" onclick="sendHeart(event)" class="cute-btn px-6 py-3 rounded-full text-base font-bold flex items-center gap-2">
+                    <span class="text-xl">💖</span>
+                    <span>Kirim Love (<span id="heartCount">0</span>)</span>
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="cute-card p-6 md:p-8 bg-gradient-to-b from-white to-pink-50 text-center">
+            <div class="w-12 h-12 mx-auto rounded-full bg-pink-200 flex items-center justify-center text-pink-600 text-2xl mb-3">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-pink-700 font-fredoka mb-2">Tinggalkan Pesan</h2>
+            <p class="text-pink-800 text-sm md:text-base max-w-md mx-auto mb-6">
+                Ingin berteman atau menyapa Nisa? Kirim pesan manis kamu di bawah ini ya! 💌
+            </p>
+
+            <form id="messageForm" onsubmit="submitForm(event)" class="max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-pink-700 uppercase tracking-wider mb-1">Nama Kamu</label>
+                    <input type="text" required placeholder="Tulis nama kamu..." class="w-full px-4 py-2.5 rounded-xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none text-pink-900 bg-white/80 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-pink-700 uppercase tracking-wider mb-1">Pesan Manis</label>
+                    <textarea rows="3" required placeholder="Halo Nisa, semangat selalu ya! ✨" class="w-full px-4 py-2.5 rounded-xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none text-pink-900 bg-white/80 text-sm"></textarea>
+                </div>
+                <button type="submit" class="w-full cute-btn py-3 rounded-xl font-bold text-sm md:text-base flex items-center justify-center gap-2">
+                    <span>Kirim Pesan</span>
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Cute Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300 bg-white border-2 border-pink-300 shadow-xl rounded-2xl p-4 flex items-center space-x-3 z-50">
+        <span class="text-2xl" id="toastIcon">✨</span>
+        <div class="text-sm font-bold text-pink-800" id="toastMessage">Pesan berhasil dikirim!</div>
+    </div>
+
+    <script>
+        let count = 0;
+
+        function sendHeart(event) {
+            count++;
+            document.getElementById('heartCount').innerText = count;
+            
+            // Spawn floating heart particle
+            createParticle(event.clientX, event.clientY, '💖');
+            
+            if (count === 5) {
+                showToast('Terima kasih banyak atas dukungannya! 🌸✨', '🎉');
+            } else if (count === 10) {
+                showToast('Kamu luar biasa! Nisa senang sekali! 🏐💖', '⭐');
+            }
+        }
+
+        function triggerSparkles(event) {
+            const sparkles = ['✨', '🌸', '💖', '⭐', '🎀'];
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const x = event.clientX + (Math.random() * 120 - 60);
+                    const y = event.clientY + (Math.random() * 120 - 60);
+                    const emoji = sparkles[Math.floor(Math.random() * sparkles.length)];
+                    createParticle(x, y, emoji);
+                }, i * 80);
+            }
+            showToast('Keajaiban merah muda disebarkan! ✨', '🪄');
+        }
+
+        function createParticle(x, y, emoji) {
+            const particle = document.createElement('div');
+            particle.className = 'sparkle-particle text-2xl z-50';
+            particle.style.left = (x - 12) + 'px';
+            particle.style.top = (y - 12) + 'px';
+            particle.innerText = emoji;
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1200);
+        }
+
+        function copyAddress(text) {
+            // Fallback copy method for inside iframe environments
+            const dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            const btnText = document.getElementById('copyText');
+            btnText.innerText = 'Tersalin! ✨';
+            showToast('Alamat berhasil disalin ke clipboard!', '📍');
+
+            setTimeout(() => {
+                btnText.innerText = 'Salin Alamat Rumah';
+            }, 2500);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            showToast('Terima kasih! Pesan manis kamu sudah terkirim 💌', '🌸');
+            document.getElementById('messageForm').reset();
+        }
+
+        function showToast(msg, icon = '✨') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            toastIcon.innerText = icon;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
